@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # My apps
    
     'account',
+    'tourist',
     
     # django apps
     'django.contrib.admin',
@@ -56,6 +57,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     )

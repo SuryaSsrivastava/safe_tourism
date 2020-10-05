@@ -12,10 +12,10 @@ class AccountAdmin(UserAdmin):
 	list_filter = ()
 	fieldsets = ()
 
-
-
+class ProfileAdmin(admin.ModelAdmin):
+	list_display = ('user','first_name','last_name','age')
 
 
 admin.site.register(Account, AccountAdmin)
-admin.site.register(profile)
+admin.site.register(profile,ProfileAdmin)
 

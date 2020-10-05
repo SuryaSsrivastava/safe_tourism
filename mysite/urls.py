@@ -29,7 +29,7 @@ urlpatterns = [
 	# REST-framework
 
     path('api/account/', include('account.api.urls', 'account_api')),
-    # path('api/users/', include('users.api.urls')),
+    path('api/tourist/', include('tourist.api.urls')),
 
    
 ]
