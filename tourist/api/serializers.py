@@ -6,7 +6,8 @@ from tourist.models import tourist_place,booking
 class tourist_placeSerializer(serializers.ModelSerializer):
     class Meta:
         model=tourist_place
-        fields=('place_id','place_name','location','max_limit','curr_booking','violation_found')
+        fields=('place_id','place_name','place_detail','location','max_limit','curr_booking','violation_found',
+        'global_cases','today_cases','deaths','recovered')
 
     def to_representation(self, instance):
         # self.fields['place_id'] =  tourist_placeSerializer(read_only=True)

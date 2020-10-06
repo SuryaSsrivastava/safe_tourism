@@ -3,7 +3,8 @@ from tourist.models import tourist_place,booking
 # Register your models here.
 
 class tourist_placesAdmin(admin.ModelAdmin):
-    	list_display = ('place_id','place_name','location','max_limit','curr_booking','violation_found')
+    	list_display = ('place_id','place_name','place_detail','location','max_limit','curr_booking','violation_found','global_cases',
+		'today_cases','deaths','recovered')
 
 class bookingsAdmin(admin.ModelAdmin):
     	list_display = ('booking_id','user_id','place_id')
