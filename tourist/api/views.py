@@ -93,7 +93,6 @@ def particular_place(request,place_id):
     return JsonResponse({'success':True,'data':temp.values()[0]})
 
 
-
 # @api_view(['POST'])
 # @permission_classes((IsAuthenticated,))
 # def booking_view(request):
