@@ -42,7 +42,7 @@ def all_tourist_places(request):
 @permission_classes((AllowAny,))
 def particular_place(request,place_id):
     queryset = tourist_place.objects.filter(place_id=place_id)
-    if queryset is None:
+    if not queryset:
         return JsonResponse({'success':False,'message':"place not found"})
     temp = queryset
     l = ['place_id','place_name','location','max_limit','curr_booking','violation_found']
