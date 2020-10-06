@@ -17,7 +17,7 @@ def tourist_view(request):
     return JsonResponse({'success':False,'message':serializer.errors} )
 
 @api_view(['GET'])
-@permission_classes((IsAuthenticated,))
+# @permission_classes((IsAuthenticated,))
 def all_tourist_places(request):
     queryset = tourist_place.objects.all().order_by('place_id')
     serializer_class = tourist_placeSerializer
