@@ -21,7 +21,6 @@ def tourist_view(request):
 def all_tourist_places(request):
     queryset = tourist_place.objects.all().order_by('place_id')
     serializer_class = tourist_placeSerializer
-    serializer = tourist_placeSerializer(tourist_place)
     d = {}
     js = []
     d['success'] = True
@@ -38,5 +37,30 @@ def all_tourist_places(request):
         temp={}
     # print(d)
     return JsonResponse(d)
+
+# @api_view(['POST'])
+# @permission_classes((IsAuthenticated,))
+# def booking_view(request):
+
+#     if request.method == 'POST':
+#         serializer = bookingSerializer(data=request.data)
+#         if serializer.is_valid():
+#             max_limit =  tourist_place.objects.all()
+#             curr_booking =  tourist_place.objects.all()
+#             # print("max_limit",max_limit)
+#             print("curr_booking",curr_booking)
+#             return JsonResponse({'message':"hello"})
+    # if request.method =='POST':
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return JsonResponse({'success':True,"data":serializer.data})
+    #     return JsonResponse({'success':False,'message':serializer.errors} )
+
+    # else:
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return JsonResponse({'success':True,"data":serializer.data})
+    #     return JsonResponse({'success':False,'message':serializer.errors} )
+
 
    
