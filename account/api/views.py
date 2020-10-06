@@ -23,6 +23,7 @@ def registration_view(request):
 		data = {}
 		if serializer.is_valid():
 			account = serializer.save()
+			data['id'] = account.id
 			data['success'] = True
 			data['email'] = account.email
 			data['username'] = account.username
