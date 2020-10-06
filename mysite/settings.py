@@ -39,7 +39,6 @@ INSTALLED_APPS = [
    
     'account',
     'tourist',
-    
     # django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -93,7 +92,7 @@ TEMPLATES = [
     },
 ]
 
-
+CORS_ORIGIN_ALLOW_ALL = True
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
@@ -146,3 +145,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
