@@ -39,7 +39,6 @@ INSTALLED_APPS = [
    
     'account',
     'tourist',
-    'corsheaders',
     
     # django apps
     'django.contrib.admin',
