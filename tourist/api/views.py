@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view,permission_classes
 from tourist.models import tourist_place,booking
 from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated,AllowAny
-import requests 
+# import requests 
 
 @api_view(['POST'])
 @permission_classes((AllowAny,))
