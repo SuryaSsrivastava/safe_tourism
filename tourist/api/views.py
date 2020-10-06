@@ -23,18 +23,20 @@ def all_tourist_places(request):
     serializer_class = tourist_placeSerializer
     serializer = tourist_placeSerializer(tourist_place)
     d = {}
-    js = {}
-    count = 0
+    js = []
+    d['success'] = True
+    d['data'] = js
+    temp = {}
     l = ['place_id','place_name','location','max_limit','curr_booking','violation_found']
     for p in queryset:
         for j,val in enumerate(str(p).split(".")):
             
-            d[l[j]] = val
+            temp[l[j]] = val
 
-        js[str(count)] = d
-        count+=1
-        d={}
-
-    return JsonResponse(js)
+        d['data'].append(temp)
+        
+        temp={}
+    # print(d)
+    return JsonResponse(d)
 
    
