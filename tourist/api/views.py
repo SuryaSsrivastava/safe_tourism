@@ -38,6 +38,19 @@ def all_tourist_places(request):
     # print(d)
     return JsonResponse(d)
 
+@api_view(['GET'])
+@permission_classes((AllowAny,))
+def particular_place(request,place_id):
+    queryset = tourist_place.objects.filter(place_id=place_id)
+    if not queryset:
+        return JsonResponse({'success':False,'message':"place not found"})
+    temp = queryset
+    l = ['place_id','place_name','location','max_limit','curr_booking','violation_found']
+   
+    return JsonResponse({'success':True,'data':temp.values()[0]})
+
+
+
 # @api_view(['POST'])
 # @permission_classes((IsAuthenticated,))
 # def booking_view(request):
