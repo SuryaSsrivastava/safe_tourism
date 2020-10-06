@@ -13,7 +13,9 @@ from rest_framework.status import (
 )
 from django.views.decorators.csrf import csrf_exempt
 
+#Registration for New User
 @api_view(['POST', ])
+@permission_classes((AllowAny,))
 def registration_view(request):
 
 	if request.method == 'POST':
@@ -30,6 +32,7 @@ def registration_view(request):
 			data = serializer.errors
 		return Response(data)
 
+#Creating profile Once User is registered
 @api_view(['POST'])
 def profile_create(request):
   serializer = ProfileSerializer(data=request.data)
@@ -38,6 +41,8 @@ def profile_create(request):
     return JsonResponse({'success':True,"data":serializer.data})
   return JsonResponse({'success':False,'message':"user doesn't exist"} )
 
+
+#Checking for valid User
 @csrf_exempt
 @api_view(["POST"])
 @permission_classes((AllowAny,))

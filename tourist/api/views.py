@@ -3,10 +3,11 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view,permission_classes
 from tourist.models import tourist_place,booking
 from rest_framework import serializers
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,AllowAny
 
 
 @api_view(['POST'])
+@permission_classes((AllowAny,))
 def tourist_view(request):
 
     serializer = tourist_placeSerializer(data=request.data)

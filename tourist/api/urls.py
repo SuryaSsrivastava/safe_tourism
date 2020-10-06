@@ -8,7 +8,7 @@ from tourist.api.views import(
 app_name = 'account'
 
 urlpatterns = [
-	path('tourist_places/', tourist_view, name="tourist_places"),
-    path('all_tourist_places/', all_tourist_places, name="all_tourist_places"),
+	path('tourist_place/', tourist_view, name="tourist_place"), #Api end point to add tourist places(POST request)
+    path('all_tourist_places/', all_tourist_places, name="all_tourist_places"), #Api end point to GET all tourist places from database
 ]
 

@@ -5,7 +5,7 @@ from account.models import Account,profile
 
 class RegistrationSerializer(serializers.ModelSerializer):
     	
-	password 	= serializers.CharField(style={'input_type': 'password'}, write_only=True)
+	password	= serializers.CharField(style={'input_type': 'password'}, write_only=True)
 	
 
 	class Meta:
@@ -24,7 +24,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 				)
 		password = self.validated_data['password']
 
-		if len(password)<8:
+		if len(password) < 8:
 			raise serializers.ValidationError({'message': 'Passwords must be at least 8 character long'})
 		account.set_password(password)
 		account.save()

@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from tourist.models import tourist_place,booking
 
+
+#What to show when a user clicks this Api
 class tourist_placeSerializer(serializers.ModelSerializer):
     class Meta:
         model=tourist_place
@@ -11,7 +13,7 @@ class tourist_placeSerializer(serializers.ModelSerializer):
         # self.fields['place_id'] =  tourist_placeSerializer(read_only=True)
         return super(tourist_placeSerializer, self).to_representation(instance)
 
-
+#what to show when a user clicks this Api
 class bookingSerializer(serializers.ModelSerializer):
     class Meta:
         model=booking
