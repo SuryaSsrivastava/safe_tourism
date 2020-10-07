@@ -39,30 +39,20 @@ def particular_place(request,place_id):
    
     return JsonResponse({'success':True,'data':temp.values()[0]})
 
-
-# @api_view(['POST'])
-# @permission_classes((IsAuthenticated,))
-# def booking_view(request):
-
-#     if request.method == 'POST':
-#         serializer = bookingSerializer(data=request.data)
-#         if serializer.is_valid():
-#             max_limit =  tourist_place.objects.all()
-#             curr_booking =  tourist_place.objects.all()
-#             # print("max_limit",max_limit)
-#             print("curr_booking",curr_booking)
-#             return JsonResponse({'message':"hello"})
-    # if request.method =='POST':
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return JsonResponse({'success':True,"data":serializer.data})
-    #     return JsonResponse({'success':False,'message':serializer.errors} )
-
-    # else:
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return JsonResponse({'success':True,"data":serializer.data})
-    #     return JsonResponse({'success':False,'message':serializer.errors} )
-
-
+@api_view(['POST'])
+@permission_classes((IsAuthenticated,))
+def booking_view(request):
+    
+    if request.method == 'POST':
+        serializer = bookingSerializer(data=request.data)
+        if serializer.is_valid():
+            book = serializer.save()  
+            id = book.place_id
+            user = book.user_id
+            d= {}
+            d['user'] = str(user)
+            d['place_name'] = str(id)
+            return JsonResponse({'success':True,"data":d})
+        else:
+            return JsonResponse({'success':False})
    
