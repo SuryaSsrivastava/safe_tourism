@@ -19,7 +19,7 @@ def tourist_view(request):
 @api_view(['GET'])
 @permission_classes((AllowAny,))
 def all_tourist_places(request):
-    queryset = tourist_place.objects.all().order_by('place_id')
+    queryset = tourist_place.objects.all().order_by('id')
     serializer_class = tourist_placeSerializer
     d = {}
     d['success'] =True
@@ -31,8 +31,8 @@ def all_tourist_places(request):
 
 @api_view(['GET'])
 @permission_classes((AllowAny,))
-def particular_place(request,place_id):
-    queryset = tourist_place.objects.filter(place_id=place_id)
+def particular_place(request,id):
+    queryset = tourist_place.objects.filter(id=id)
     if not queryset:
         return JsonResponse({'success':False,'message':"place not found"})
     temp = queryset
@@ -47,7 +47,7 @@ def booking_view(request):
         serializer = bookingSerializer(data=request.data)
         if serializer.is_valid():
             book = serializer.save()  
-            id = book.place_id
+            id = book.id
             user = book.user_id
             d= {}
             d['user'] = str(user)

@@ -6,7 +6,7 @@ from tourist.models import tourist_place,booking
 class tourist_placeSerializer(serializers.ModelSerializer):
     class Meta:
         model=tourist_place
-        fields=('place_id','place_name','place_detail','location','max_limit','curr_booking','violation_found',
+        fields=('id','place_name','place_detail','location','max_limit','curr_booking','violation_found',
         'global_cases','today_cases','deaths','recovered')
 
     def to_representation(self, instance):
@@ -17,7 +17,7 @@ class tourist_placeSerializer(serializers.ModelSerializer):
 class bookingSerializer(serializers.ModelSerializer):
     class Meta:
         model=booking
-        fields=('booking_id','user_id','place_id')
+        fields=('id','user_id','place_id')
         # read_only_fields = ('created','updated')
 
     def to_representation(self, instance):
