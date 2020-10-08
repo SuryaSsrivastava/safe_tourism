@@ -9,8 +9,8 @@ You can check the code in .ipny file
 
 # Special contribution to my friend for front end part created using React/Next JS
 
-# ![Frontend](https://github.com/VishalKK1997/Addverb_Tourism)
+@Vishal Kumar Kharwar - https://github.com/VishalKK1997/Addverb_Tourism
 
 Demo Link - 
 
-# ![Demo Link] (https://addverb-tourism-i0tg9m3vg.vercel.app/)
+https://addverb-tourism-i0tg9m3vg.vercel.app/
